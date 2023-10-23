@@ -39,7 +39,7 @@ void TareaUART01(void*parameter){
     
     senal1 = true;
     turno = 2;
-    while((senal2 == true) && (turno == 2))
+    if((senal2 == true) && (turno == 2))
     {
       vTaskDelay(1000 / portTICK_PERIOD_MS);
     }

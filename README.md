@@ -1,4 +1,4 @@
 # Sistemas Operativos en Tiempo Real - Repositorio
 ## Lio Saucedo Langi
-## Domínguez Jaramillo Diego Alejandro
+## Dominguez Jaramillo Diego Alejandro
 ## Villalobos Reveles Omar

@@ -27,7 +27,6 @@ Servo vRPM;
 // LED PARA TESTIGO DE TEMPERATURA
 #define TEMP_RED    23 
 #define TEMP_GREEN  22 
-#define TEMP_BLUE   21
 
 float temperature = 0;
 
@@ -35,7 +34,6 @@ float temperature = 0;
 // LED PARA TESTIGO DE ACEITE
 #define ACEITE_RED    19 
 #define ACEITE_GREEN  18 
-#define ACEITE_BLUE   5
 
 float aceite = 0;
 
@@ -68,8 +66,8 @@ int sensor_cofre = 0; // Si es HIGH se enciende el testigo lo que indica que el 
 int sensor_cajuela = 0; // Si es HIGH se enciende el testigo
 
 // LEDs PARA INTERMITENTES Y DIRECCIONALES
-#define RIGHT 1
-#define LEFT 3
+#define RIGHT 21
+#define LEFT 5
 int s_dir = 0; // Si es 0 estan apagadas, 1 si estan intermitentes, 2 direccionales derecha y 3 direccionales izquierda
 
 //Tarea testigo de aceite
@@ -81,13 +79,11 @@ void Aceite(void*parameter){
     {
       analogWrite(ACEITE_RED,   255);
       analogWrite(ACEITE_GREEN, 255);
-      analogWrite(ACEITE_BLUE,  0);
     }
     if(aceite >= 0 && aceite <= 10) // Si el nivel de aceite es inferior a 10& el testigo prende en rojo
     {
       analogWrite(ACEITE_RED,   255);
       analogWrite(ACEITE_GREEN, 0);
-      analogWrite(ACEITE_BLUE,  0);
     }
   }
 }
@@ -117,13 +113,11 @@ void Temperatura(void*parameter){
     {
       analogWrite(TEMP_RED,   255);
       analogWrite(TEMP_GREEN, 255);
-      analogWrite(TEMP_BLUE,  0);
     }
     if(temperature >= 90 && temperature <= 100) // Si la temperatura es mayor a 90 y menor o igual a 100 el testigo prende de color rojo
     {
       analogWrite(TEMP_RED,   255);
       analogWrite(TEMP_GREEN, 0);
-      analogWrite(TEMP_BLUE,  0);
     }
     
   }
@@ -270,10 +264,8 @@ void setup() {
   pinMode(AIRBAG_LED, OUTPUT);
   pinMode(TEMP_RED, OUTPUT);
   pinMode(TEMP_GREEN, OUTPUT);
-  pinMode(TEMP_BLUE, OUTPUT);
   pinMode(ACEITE_RED, OUTPUT);
   pinMode(ACEITE_GREEN, OUTPUT);
-  pinMode(ACEITE_BLUE, OUTPUT);
   pinMode(CINTO_LED, OUTPUT);
   pinMode(DOOR_LED, OUTPUT);
   pinMode(COFRE_LED, OUTPUT);
